@@ -1,8 +1,11 @@
+const newBookBtn = document.getElementById('new-book-btn')
+const newBtnDiv = document.getElementById('button-div')
+const form = document.getElementById('form')
 const title = document.getElementById('title')
 const author = document.getElementById('author')
 const pages = document.getElementById('pages')
 const submit = document.getElementById('submit')
-const check = document.getElementById('check')
+const bookContainer = document.getElementById('book-card-container')
 const myLibrary = [];
 
 
@@ -18,12 +21,18 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook)
+    bookContainer.innerHTML = ''
 
     for (let i = 0; i < myLibrary.length; i++) {
         let content = document.createElement('div')
-        content.textContent = `${myLibrary[i].title}`
+        content.innerHTML = `
+        <p>${myLibrary[i].title}</p>
+        <p>${myLibrary[i].author}</p>
+        <p>${myLibrary[i].pages}</p>
+        `
+        content.className = 'book-card'
 
-        check.appendChild(content)
+        bookContainer.appendChild(content)
     }
 }
 
@@ -33,5 +42,15 @@ submit.addEventListener('click' , (e) => {
 
     let testBook = new Book(title.value , author.value , pages.value)
 
+    form.style.display = 'none'
+    newBtnDiv.style.display = 'flex'
+
+
     addBookToLibrary(testBook)
 } )
+
+newBookBtn.addEventListener('click', (e) => {
+    form.style.display = 'flex'
+    newBtnDiv.style.display = 'none'
+})
+
