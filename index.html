@@ -8,20 +8,19 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="button-div" id="button-div">
-        <button class="new-book-btn" id="new-book-btn">New book</button>
-    </div>
-    <form action="" id ="form" class="book-info">
-        <label for="title">Title:</label>
-        <input type="text" id="title">
+    <header class="header">
+        <h1>library</h1>
+    </header>
+        <button class="form" id="new-book-btn">+</button>
+    <form action="" id ="form" class="form">
+        <h2 class="form">Add a new book</h2>
+        <input type="text" id="title" class="form" placeholder="Title">
     
-        <label for="author">Author:</label>
-        <input type="text" id="author">
+        <input type="text" id="author" class="form" placeholder="Author">
         
-        <label for="pages">Pages:</label>
-        <input type="text" id="pages">
+        <input type="text" id="pages"  class="form" placeholder="Pages">
 
-        <input type="submit" id="submit">
+        <button class="form" id="submit">Submit</button>
     </form>
 
     <div id="book-card-container" class="book-card-container"></div>
