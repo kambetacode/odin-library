@@ -139,14 +139,34 @@ form>input{
     border-radius: 10px;
     height: 45px;
     width: 60%;
+    transition: filter 0.15s ease-in-out;
 }
 
-.remove-button:hover {
+.remove-button:hover, .read-button:hover {
     cursor: pointer;
-    background-color: #D8D8D8;
+    filter: brightness(90%)
 }
 
 .is-read {
     display: flex;
     flex-direction: column;
+}
+
+.read-button {
+    font-size: 20px;
+    font-weight: 600;
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    width: 60%;
+    margin-bottom: 5px;
+    transition: filter 0.15s ease-in-out;
+}
+
+.read-button.green {
+    background-color: #9FFF9C
+}
+
+.read-button.red {
+    background-color: #FF9C9C
 }

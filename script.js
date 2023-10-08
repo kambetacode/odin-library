@@ -10,6 +10,7 @@ const submit = document.getElementById('submit')
 const bookContainer = document.getElementById('book-card-container')
 const modal = document.getElementById('modal')
 const overlay = document.querySelector('.overlay')
+const readToggle = document.getElementById('read-toggle')
 const myLibrary = [];
 
 
@@ -33,7 +34,7 @@ function addBookToLibrary(newBook) {
         <p>${myLibrary[i].title}</p>
         <p>${myLibrary[i].author}</p>
         <p>${myLibrary[i].pages}</p>
-        <button class="read-button" id="read"></button>
+        ${readTest(myLibrary[i].read)}
         <button class="remove-button" id="remove">Remove</button>
         `
 
@@ -44,32 +45,42 @@ function addBookToLibrary(newBook) {
     }
 }
 
-function handleRemove(target) {
+function handleRemove() {
     const remove = document.querySelectorAll('#remove')
     
     remove.forEach(item => {
         item.addEventListener('click', (e) => {
-            let parent = item.parentNode
-            parent.remove()
-            myLibrary.splice(parent.dataset.data, '1')
+            let removeParent = item.parentNode
+            removeParent.remove()
+            myLibrary.splice(removeParent.dataset.index, '1')
         })
     })
 }
 
 function handleRead() {
     const readButton = document.querySelectorAll('#read')
-
+    
     readButton.forEach(item => {
+
         item.addEventListener('click', (e) => {
+            let readParent = item.parentNode
             console.log(e.target)
         })
     })
 }
 
+function readTest(readStatus) {
+    if( readStatus === true) {
+        return '<button class="read-button green" id="read">Read</button>'
+    } else {
+        return '<button class="read-button red" id="read">Not read</button>'
+    }
+}
+
 submit.addEventListener('click' , (e) => {
     e.preventDefault()
 
-    let testBook = new Book(title.value , author.value , pages.value)
+    let testBook = new Book(title.value , author.value , pages.value, readToggle.checked)
     modal.classList.remove('active')
     bookContainer.style.display = 'grid'
     overlay.style.display = 'none'
