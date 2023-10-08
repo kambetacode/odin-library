@@ -31,13 +31,27 @@ function addBookToLibrary(newBook) {
         <p>${myLibrary[i].title}</p>
         <p>${myLibrary[i].author}</p>
         <p>${myLibrary[i].pages}</p>
+        <button class="remove-button" id="remove">Remove</button>
         `
+
+        content.setAttribute('data-index', `${i}`)
         content.className = 'book-card'
 
         bookContainer.appendChild(content)
     }
 }
 
+function handleRemove(target) {
+    const remove = document.querySelectorAll('#remove')
+    
+    remove.forEach(item => {
+        item.addEventListener('click', (e) => {
+            let parent = item.parentNode
+            parent.remove()
+            myLibrary.splice(parent.dataset.data, '1')
+        })
+    })
+}
 
 submit.addEventListener('click' , (e) => {
     e.preventDefault()
@@ -52,6 +66,7 @@ submit.addEventListener('click' , (e) => {
     })
 
     addBookToLibrary(testBook)
+    handleRemove()
 } )
 
 newBookBtn.addEventListener('click', (e) => {
