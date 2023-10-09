@@ -29,6 +29,9 @@ class Library {
         return this.books.find(book => book.title === title)
     }
 
+    isInLibrary(title) {
+        return this.books.some(book => book.title === title)
+    }
 }
 
 const library = new Library()
@@ -72,9 +75,13 @@ const getBookFromInput = () => {
 const addNewBook = (e) => {
     e.preventDefault()
     const newBook = getBookFromInput()
-    library.addBook(newBook)
-    updateBookContainer()
-    closeAddBookModal()
+    if(library.isInLibrary(newBook.title)) {
+        alert('This book already exists')
+    } else {
+        library.addBook(newBook)
+        updateBookContainer()
+        closeAddBookModal()
+    }
 }
 
 //
