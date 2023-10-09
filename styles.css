@@ -103,6 +103,10 @@ form>input{
     left: 75%;
 }
 
+#add-book-btn>p {
+    margin: auto;
+}
+
 #add-book-btn.active {
     opacity: 0.5;
 }
