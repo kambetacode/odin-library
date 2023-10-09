@@ -51,6 +51,7 @@ const bookCardContainer = document.getElementById('book-card-container')
 const openAddBookModal = () => {
     addBookModal.classList.add('active')
     overlay.classList.add('active')
+    addBookBtn.classList.add('active')
 }
 
 const closeAddBookModal = () => {
@@ -160,8 +161,8 @@ const updateBookContainer = () => {
 
 // Event listeners
 
-addBookForm.onsubmit = addNewBook
 addBookBtn.onclick = openAddBookModal
+addBookForm.onsubmit = addNewBook
 overlay.onclick = closeAddBookModal
 
 //
