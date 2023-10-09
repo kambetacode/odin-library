@@ -11,25 +11,25 @@
     <header class="header">
         <h1>library</h1>
     </header>
-        <button class="form" id="new-book-btn">+</button>
+        <button class="form" id="add-book-btn">+</button>
     <div id="book-card-container" class="book-card-container"></div>
-    <div id="modal" class="modal">
-        <form action="" id ="form" class="form">
+    <div id="add-book-modal" class="add-book-modal">
+        <form action="" id ="add-book-form" class="form">
             <h2 class="form">Add a new book</h2>
 
             <input type="text" id="title" class="form" placeholder="Title">
             <input type="text" id="author" class="form" placeholder="Author">
-            <input type="text" id="pages"  class="form" placeholder="Pages">
+            <input type="number" id="pages"  class="form" placeholder="Pages">
     
-            <div class="form" id="is-read">
+            <div class="is-read">
                 <label class="form">Have you read it?</label>
-                <input type="checkbox" class="form" id="read-toggle">
+                <input type="checkbox" class="form" id="is-read">
             </div>
     
             <button class="form" id="submit">Submit</button>
         </form>
     </div>
-    <div class="overlay">
+    <div class="overlay" id="overlay">
     </div>
 </body>
 </html>

@@ -18,17 +18,19 @@ body {
     box-shadow: 1px 5px 7px -1px rgba(0, 0, 0, 0.13);
 }
 
-.modal {
+.add-book-modal {
     z-index: 1;
     position: fixed;
     top: 50%;
     left: 50%;
     width: 300px;
+    border-radius: 10px;
     transform: translate(-50%, -50%) scale(0);
     transition: 0.2s ease-in-out;
+    background-color: #F0EEF1;
 }
 
-.modal.active {
+.add-book-modal.active {
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -40,6 +42,10 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.active {
+    display: block;
 }
 
 form {
@@ -59,7 +65,8 @@ form {
     border-style: none;
     height: 40px;
     width: 80%;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: white;
 }
 
@@ -82,7 +89,7 @@ form>input{
     justify-content: center;
 }
 
-#new-book-btn {
+#add-book-btn {
     font-size: 40px;
     height: 80px;
     width: 80px;
@@ -94,11 +101,11 @@ form>input{
     top: 80vh;
     left: 80vw;
 }
-#new-book-btn:hover {
+#add-book-btn:hover {
     cursor: pointer;
 }
 
-#new-book-btn:active {
+#add-book-btn:active {
     background-color: #23BE5B;
 }
 
@@ -131,6 +138,10 @@ form>input{
     box-sizing: border-box;
 }
 
+.button-container {
+    width: 70%;
+}
+
 .remove-button {
     font-size: 20px;
     font-weight: 600;
@@ -138,7 +149,7 @@ form>input{
     border-style: none;
     border-radius: 10px;
     height: 45px;
-    width: 60%;
+    width: 100%;
     transition: filter 0.15s ease-in-out;
 }
 
@@ -149,24 +160,26 @@ form>input{
 
 .is-read {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 .read-button {
+    margin-bottom: 5px;
     font-size: 20px;
     font-weight: 600;
     border-style: none;
     border-radius: 10px;
     height: 45px;
-    width: 60%;
-    margin-bottom: 5px;
+    width: 100%;
     transition: filter 0.15s ease-in-out;
 }
 
-.read-button.green {
+.btn-light-green {
     background-color: #9FFF9C
 }
 
-.read-button.red {
+.btn-light-red {
     background-color: #FF9C9C
 }
